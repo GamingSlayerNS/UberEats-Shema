@@ -1,0 +1,34 @@
+use ubereats;
+select * from person;
+select * from customer;
+select * from driver;
+select * from address;
+select * from restaurant;
+select * from food_order;
+select * from driver_delivery;
+select * from Customers;
+select * from Drivers;
+
+INSERT into person (`first_name`,  `last_name`, `date_of_birth`, `email`) values ('Speedy', 'NS', '2001-03-09', 'nas@gmail.com');
+INSERT into address (`street`, `city`, `state`, `zipcode`) values ('2727 Bens Branch Dr', 'Frisco', 'Texas', '75075');
+INSERT into address (`street`, `city`, `state`, `zipcode`) values ('some stree for HEB', 'Frisco', 'Texas', '75075');
+INSERT into customer (`customerID`, `customer_addressID`, `uberone_member_status`) values ('1', '1', '1');
+INSERT into customer (`customerID`, `customer_addressID`, `uberone_member_status`) values ('2', '2', '2');
+INSERT into driver (`driverID`, `vehicle_plate`, `drivers_liscence_number`) values ('2', 'hoyo-77', '7429');
+INSERT into restaurant (`restaurant_addressID`, `restaurant_name`, `operational_hours`) values ('2', 'HEB', '24/7');
+INSERT into restaurant (`restaurant_addressID`, `restaurant_name`, `operational_hours`) values ('1', 'Piada', '24/7');
+INSERT into food_order (`restaurantID`, `customerID`, `estimate_delivery_time`) VALUES (1, 1, 'soon');
+INSERT into driver_delivery (`driverID`, `food_orderID`, `customerID`) VALUES (4, 1, 1);
+UPDATE driver_delivery SET delivery_time = 'now' WHERE driver_delivery.food_orderID = 1;
+DELETE from person where personID = 1;
+DELETE from customer where customerID = 1;
+DELETE from driver where driverID;
+DELETE FROM customer where customerID;
+DELETE FROM person where personID;
+SELECT @@foreign_key_checks;
+SET FOREIGN_KEY_CHECKS = 1;
+
+call addCustomer('Yuuki', 'konno', '2001-05-23', 'gamingslayerns@gmail.com', '787-457-2844', 'Royston St', 'Frisco', 'Texas', '75036', 1);
+call addCustomer('Kaguya', 'Shinomiya', '2001-01-01', 'fourthpalace@gmail.com', '787-457-2844', 'Royston St 2', 'Frisco', 'Texas', '75036', 1);
+call addCustomer('Kasumi', 'Toyama', '2001-07-14', 'kirakiradokidoki@gmail.com', '787-457-2844', 'Royston St 4', 'Frisco', 'Texas', '75036', 1);
+call addDriver('Hu', 'Tao', '2001-07-15', 'wangshangFP@gmail.com', '787-457-2844', 'PRB5978', 123456);
